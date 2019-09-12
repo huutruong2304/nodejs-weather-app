@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/about.css">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {{>header}}
+    <div class="nav">
+        <a href="/">Weather</a>
+        <a href="/help">Help</a>
+        <a href="/about">About</a>
+    </div>
+    <div id="body">
+        {{!-- <p>Your location: {{location}}</p> --}}
+        <p>Use this site to get your weather</p>
+        <form>
+            <input type="text" placeholder="Enter your location">
+            <button>Search</button>
+        </form>
+        <p id='message-1'></p>
+        <p id='message-2'></p>
+    </div>
+    <hr>
+    {{>footer}}
+
+    <script src="/js/event.js"></script>
+
+</body>
+
+</html>
