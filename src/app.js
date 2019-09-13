@@ -8,6 +8,9 @@ const fetch = require('node-fetch')
 
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+
 //define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
@@ -36,24 +39,24 @@ app.get('/weather', (req, res) => {
             error: 'You must provide a location!'
         });
     }
-    geocode(req.query.location,(err,{latitude,longtitude,location}={})=>{
-        if(err){
-            return res.send({err});
+    geocode(req.query.location, (err, { latitude, longtitude, location } = {}) => {
+        if (err) {
+            return res.send({ err });
         }
         // res.send({latitude,longtitude});
 
-        forecast(latitude,longtitude,(err,forecastData)=>{
-            if (err){
-                return res.send({err});
+        forecast(latitude, longtitude, (err, forecastData) => {
+            if (err) {
+                return res.send({ err });
             }
             res.send({
-                forecast: forecastData.summary+'. It is currently '+ forecastData.temperature+' degrees out. There is  a '+forecastData.precipProbability + '% chance of rain.',
+                forecast: forecastData.summary + '. It is currently ' + forecastData.temperature + ' degrees out. There is  a ' + forecastData.precipProbability + '% chance of rain.',
                 location: location
             });
 
         });
     });
-    
+
     // res.send({
     //     country: 'viet nam',
     //     location: req.query.location
@@ -87,8 +90,8 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up to port 3000');
+app.listen(port, () => {
+    console.log('Server is up to port ' + port);
 });
 
 // console.log(__dirname);
