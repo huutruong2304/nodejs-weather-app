@@ -20,19 +20,13 @@ hr {
 h1 {
     color: gray;
     font-size: 60px;
+    margin: 20px 0;
 }
 
 header {
-    height: 15vh;
-    min-height: 40px;
     margin: 0;
     padding-top: 15px;
     /* background-color: aqua; */
-}
-
-#body {
-    /* padding-top: 30px; */
-    height: auto;
 }
 
 input {
@@ -53,4 +47,12 @@ button {
     border: 1px solid cornflowerblue;
     outline: none;
     color: white;
+}
+
+#body {
+    height: 500px;
+}
+
+#body {
+    margin: 10px;
 }
